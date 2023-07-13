@@ -21,8 +21,8 @@ def get_hash(password, salt):
     return hashed_password
 
 
-def insert_user(user_name, password):
-    sql = "INSERT INTO user_sample VALUES(default, %s, %s, %s)"
+def insert_user(user_name, tell, mail, password):
+    sql = "INSERT INTO users VALUES(default, %s, %s, %s,%s,%s)"
 
     salt = get_salt()
     hashed_password = get_hash(password, salt)
@@ -31,7 +31,7 @@ def insert_user(user_name, password):
         connection = get_connection()
         cursor = connection.cursor()
 
-        cursor.execute(sql, (user_name, hashed_password, salt))
+        cursor.execute(sql, (user_name, tell, mail, hashed_password, salt))
         count = cursor.rowcount  # 更新件数を取得
         connection.commit()
 
@@ -45,15 +45,15 @@ def insert_user(user_name, password):
     return count
 
 
-def login(user_name, password):
-    sql = "SELECT hashed_password, salt FROM user_sample WHERE name = %s"
+def login(mail, password):
+    sql = "SELECT hashed_password, salt FROM users WHERE mail = %s"
     flg = False
 
     try:
         connection = get_connection()
         cursor = connection.cursor()
 
-        cursor.execute(sql, (user_name,))
+        cursor.execute(sql, (mail,))
         user = cursor.fetchone()
 
         if user != None:
@@ -75,3 +75,40 @@ def login(user_name, password):
         connection.close()
 
     return flg
+
+
+def insert_book(isbn, title, author, publisher):
+    sql = "INSERT INTO books VALUES(default, %s, %s, %s,%s)"
+
+    connection = get_connection()
+    cursor = connection.cursor()
+
+    cursor.execute(
+        sql,
+        (
+            isbn,
+            title,
+            author,
+            publisher,
+        ),
+    )
+    connection.commit()
+
+    cursor.close()
+    connection.close()
+
+
+def delete_book(id):
+    sql = "delete from books where id=%s"
+
+    connection = get_connection()
+    cursor = connection.cursor()
+
+    cursor.execute(
+        sql,
+        (id),
+    )
+    connection.commit()
+
+    cursor.close()
+    connection.close()

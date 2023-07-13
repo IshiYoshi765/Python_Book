@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>ユーザ登録</title>
   </head>
   <body>
     <h3>ユーザ登録画面</h3>
@@ -11,12 +11,13 @@
     <p style="color: red">{{error}}</p>
     {% endif %}
     <form action="{{url_for('register_exe')}}" method="post">
-      ユーザ名:<input type="text" name="username" value="{{user_name}}" /><br />
-      パスワード：<input
-        type="password"
-        name="password"
-        value="{{password}}"
-      /><br />
+      ユーザ名:<input type="text" name="username" value="{{user_name}}"
+      /required><br />
+      電話番号:<input type="text" name="tell" value="{{tell}}" /required><br />
+      メールアドレス:<input type="text" name="mail" value="{{mail}}"
+      /required><br />
+      パスワード：<input type="password" name="password" value="{{password}}"
+      /required><br />
       <button type="submit">登録</button>
     </form>
   </body>
