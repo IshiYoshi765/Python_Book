@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>検索された本の一覧</h1>
-    <table class="table table-striped">
+    <table border>
       <thead>
         <tr>
           <th>ISBN</th>
@@ -27,5 +27,6 @@
         {% endfor %}
       </tbody>
     </table>
+    <a href="{{url_for('mypage')}}">TOPへ</a>
   </body>
 </html>
