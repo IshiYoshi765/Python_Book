@@ -134,5 +134,22 @@ def book_list():
     return render_template("book_list.html", books=list)
 
 
+@app.route("/book_update_form")
+def book_update_form():
+    return render_template("book_update_form.html")
+
+
+@app.route("/book_update", methods=["POST"])
+def book_update():
+    ISBN = request.form.get("ISBN")
+    title = request.form.get("title")
+    author = request.form.get("author")
+    publisher = request.form.get("publisher")
+    id = request.form.get("id")
+
+    db.update_book(ISBN, title, author, publisher, id)
+    return render_template("book_update.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

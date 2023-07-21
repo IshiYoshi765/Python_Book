@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/haikei.css')}}"
+    />
+    <title>削除完了</title>
+  </head>
+  <body class="haikei">
+    <form action="{{url_for('book_update')}}" , method="post">
+      <div>
+        <h3>本の編集</h3>
+        <label for="ISBN">ISBN:</label>
+        <input type="text" id="ISBN" name="ISBN" required /><br />
+        <label for="title">タイトル:</label>
+        <input type="text" id="title" name="title" required /><br />
+        <label for="author">著者:</label>
+        <input type="text" id="author" name="author" required /><br />
+        <label for="publisher">出版社:</label>
+        <input type="text" id="publisher" name="publisher" required /><br />
+        <p>id</p>
+        <input type="text" name="id" />
+        <input type="submit" value="更新" />
+      </div>
+    </form>
+  </body>
+</html>

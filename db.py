@@ -142,3 +142,15 @@ def list_book():
     connection.close()
 
     return rows
+
+
+def update_book(ISBN, title, author, publisher, id):
+    connection = get_connection()
+    cursor = connection.cursor()
+    sql = "update books set ISBN=%s,title=%s,author=%s,publisher=%s where id=%s"
+
+    cursor.execute(sql, (ISBN, title, author, publisher, id))
+    connection.commit()
+
+    cursor.close()
+    connection.close()
