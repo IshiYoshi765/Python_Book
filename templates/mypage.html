@@ -3,14 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',
+    filename='css/haikei.css')}}"
+    />
     <title>マイページ</title>
   </head>
-  <body>
-    <h3>マイページ</h3>
-    <a href="{{url_for('logout')}}">ログアウト</a>
-    <a href="{{url_for('book_register_form')}}">本の登録</a>
-    <a href="{{url_for('book_delete_form')}}">本の削除</a>
-    <a href="{{url_for('book_search_form')}}">本の検索</a>
-    <a href="{{url_for('book_list')}}">本の一覧</a>
+  <body class="haikei">
+    <a href="{{url_for('logout')}}">ログアウト</a><br />
+    <div>
+      <h3>マイページ</h3>
+      <a href="{{url_for('book_register_form')}}">本の登録</a><br />
+      <a href="{{url_for('book_delete_form')}}">本の削除</a><br />
+      <a href="{{url_for('book_search_form')}}">本の検索</a><br />
+      <a href="{{url_for('book_list')}}">本の一覧</a>
+    </div>
   </body>
 </html>

@@ -3,13 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/haikei.css')}}"
+    />
     <title>本の検索</title>
   </head>
-  <body>
-    <h3>検索したい本のタイトルを入力してね</h3>
-    <form action="{{url_for('book_search')}}" method="post">
-      タイトル:<input type="text" name="title" value="{{title}}" /><br />
-      <button type="submit">検索</button>
-    </form>
+  <body class="haikei">
+    <div>
+      <h3>検索したい本のタイトルを入力してね</h3>
+      <form action="{{url_for('book_search')}}" method="post">
+        タイトル:<input type="text" name="title" value="{{title}}"/required><br />
+        <button type="submit">検索</button>
+      </form>
+    </div>
   </body>
 </html>

@@ -3,11 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/haikei.css')}}"
+    />
     <title>削除完了</title>
   </head>
-  <body>
-    <h3>本の削除完了</h3>
-    <a href="{{url_for('mypage')}}">TOPへ</a>
-    <a href="{{url_for('book_delete_form')}}">続けて削除</a>
+  <body class="haikei">
+    <div>
+      <h3>本の削除完了</h3>
+      <a href="{{url_for('mypage')}}">TOPへ</a>
+      <a href="{{url_for('book_delete_form')}}">続けて削除</a>
+    </div>
   </body>
 </html>
